@@ -8,6 +8,10 @@ class App {
 
     public constructor () {
         this.express = express()
+
+        this.database()
+        this.middlawares()
+        this.routes()
     }
 
     private middlawares () :void{
@@ -28,3 +32,5 @@ class App {
         })
     }
 }
+
+export default new App().express;

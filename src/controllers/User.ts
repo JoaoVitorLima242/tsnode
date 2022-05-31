@@ -7,6 +7,10 @@ class UserController {
 
         return res.json(users)
     }
+    public async home(req: Request, res: Response) : Promise<Response> {
+
+        return res.send('Hello World')
+    }
 }
 
 export default new UserController()

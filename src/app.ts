@@ -1,8 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import { applyFixes } from 'eslint/lib/linter/source-code-fixer';
-
+import routes from './routes';
 class App {
     public express: express.Application;
 
@@ -21,15 +20,13 @@ class App {
     }
 
     private database () :void {
-        mongoose.connect('mongodb://localhost27017/tsnode', {
+        mongoose.connect('mongodb://localhost:27017/tsnode', {
             useNewUrlParser: true
         })
     }
 
     private routes () : void {
-        this.express.get('/', (req, res) => {
-            return res.send('Hello World');
-        })
+        this.express.use(routes)
     }
 }
 

@@ -7,9 +7,11 @@ class UserController {
 
         return res.json(users)
     }
-    public async home(req: Request, res: Response) : Promise<Response> {
 
-        return res.send('Hello World')
+    public async create(req: Request, res: Response) : Promise<Response> {
+        const user = await User.create(req.body)
+
+        return res.json(user)
     }
 }
 
